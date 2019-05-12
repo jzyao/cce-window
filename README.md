@@ -14,7 +14,3 @@
 起一个service，NodePort 80端口
 
 
-## WCF
-本地拉镜像
-`docker pull mcr.microsoft.com/dotnet/framework/wcf:4.7.2-windowsservercore-1709`
-
