@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: iis-1709
+  labels:
+    app: iis-1709
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: iis-1709
+      labels:
+        app: iis-1709
+    spec:
+      containers:
+      - name: iis
+        image:  mcr.microsoft.com/windows/servercore/iis:windowsservercore-1709
+        ports:
+          - containerPort: 80
+  selector:
+    matchLabels:
+      app: iis-1709
