@@ -5,6 +5,13 @@
 ## Prepare
 申请台ECS，4c16g, RDP到远程桌面
 
+### 配置docker daemon
+```
+{
+  "data-root": "D:\docker"
+}
+```
+
 在powershell内先下载基础镜像
 ```
 docker pull microsoft/windowsservercore:1709
@@ -30,4 +37,5 @@ sconfig 选择6 All
 
 ## sqlserver demo
 
+在host内新建目录 `c:\sql` 用于之后挂盘
 
