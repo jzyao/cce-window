@@ -3,14 +3,28 @@
 1709 
 
 ## Prepare
-申请台ECS，4c16g, RDP到远程桌面
+申请台ECS，4c16g, 加一块200G数据盘，
+
+RDP到远程桌面
 
 ### 配置docker daemon
+
+确认数据盘加载ok，如果不行，powershell 
+`diskpart - list disk`
+- select disk 
+- online
+- create partition
+- ASSIGN LETTER=D 
+- list volume
+- format fs=ntfs label='new' quick compress
+
+修改C:\ProgramData\docker\config\daemon.json配置文件
 ```
 {
-  "data-root": "D:\docker"
+  "data-root": "D:\\docker"
 }
 ```
+重启
 
 在powershell内先下载基础镜像
 ```
