@@ -3,9 +3,9 @@
 1709 
 
 ## Prepare
-申请台ECS，4c16g, RDP，
-powershell
-下载基础镜像
+申请台ECS，4c16g, RDP到远程桌面
+
+在powershell内先下载基础镜像
 ```
 docker pull microsoft/windowsservercore:1709
 docker pull mcr.microsoft.com/windows/servercore/iis:windowsservercore-1709
