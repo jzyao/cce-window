@@ -41,6 +41,9 @@ diskpart
 ```
 重启机器，确认docker正常运行
 
+## 加入CCE集群
+请参考步骤，把机器加入CCE windows的集群，页面确认加入成功
+
 ### 基础镜像
 在powershell内先下载基础镜像
 ```
