@@ -1,0 +1,79 @@
+kind: StatefulSet
+apiVersion: apps/v1beta1
+metadata:
+  name: sql-1709
+  namespace: default
+  labels:
+    appgroup: ''
+  annotations:
+    description: ''
+  enable: true
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sql-1709
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: sql-1709
+      annotations:
+        metrics.alpha.kubernetes.io/custom-endpoints: '[{"api":"","path":"","port":"","names":""}]'
+        pod.alpha.kubernetes.io/initialized: 'true'
+      enable: true
+    spec:
+      volumes:
+        - name: vol-155775386481363348
+          hostPath:
+            path: 'D:\data'
+      containers:
+        - name: container-0
+          image: 'microsoft/mssql-server-windows-developer:1709'
+          env:
+            - name: PAAS_APP_NAME
+              value: sql-1709
+            - name: PAAS_NAMESPACE
+              value: default
+            - name: PAAS_PROJECT_ID
+              value: dedc4425832b4342a0ecb7a30624d5c3
+            - name: ACCEPT_EULA
+              value: 'Y'
+            - name: sa_password
+              value: 'F#f123456'
+          resources:
+            limits:
+              cpu: '1'
+              memory: 2000Mi
+            requests:
+              cpu: '1'
+              memory: 2000Mi
+          volumeMounts:
+            - name: vol-155775386481363348
+              mountPath: 'C:\tmp'
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      imagePullSecrets:
+        - name: default-secret
+      affinity: {}
+      schedulerName: default-scheduler
+      tolerations:
+        - key: node.alpha.kubernetes.io/notReady
+          operator: Exists
+          effect: NoExecute
+          tolerationSeconds: 300
+        - key: node.alpha.kubernetes.io/unreachable
+          operator: Exists
+          effect: NoExecute
+          tolerationSeconds: 300
+  serviceName: sqlserver
+  podManagementPolicy: OrderedReady
+  updateStrategy:
+    type: RollingUpdate
+  revisionHistoryLimit: 10
+
