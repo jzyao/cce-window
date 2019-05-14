@@ -63,6 +63,6 @@ docker pull microsoft/mssql-server-windows-developer:1709
 在host内新建目录 `D:\data` 用于之后挂盘
 在CCE内新增stateful应用，选择sqlserver镜像。具体见 sql-1709.yaml
 注意：
-1. 配置2个环境变量 sa_password=<YOUR SA PASSWORD> ACCEPT_EULA=Y
+1. 配置2个环境变量 sa_password=<YOUR SA PASSWORD>; ACCEPT_EULA=Y
 2. 挂在数据盘 主机挂在点选 D:\data, 容器内随意 i.e C:\tmp
 
