@@ -52,6 +52,12 @@ docker pull mcr.microsoft.com/windows/servercore/iis:windowsservercore-1709
 docker pull microsoft/mssql-server-windows-developer:1709
 ```
 
+## demo 准备
+
+```git clone https://github.com/jzyao/cce-window.git
+cd cce-window
+```
+
 ## IIS demo
 起一个iis
 `kubectl apply -f iis-1709.yaml`
