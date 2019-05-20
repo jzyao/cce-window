@@ -54,7 +54,8 @@ docker pull microsoft/mssql-server-windows-developer:1709
 
 ## demo 准备
 
-```git clone https://github.com/jzyao/cce-window.git
+```
+git clone https://github.com/jzyao/cce-window.git
 cd cce-window
 ```
 
